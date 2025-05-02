@@ -1,0 +1,56 @@
+// ~/.config/waybar/config
+{
+  "position":   "top",
+  "bar-height": 32,
+
+  "modules-left":   ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right":  [
+    "network",
+    "custom/separator",
+    "pulseaudio",
+    "custom/separator",
+    "custom/logout",
+    "custom/separator",
+    "clock"
+  ],
+
+  // built-in modules
+  "network": {
+    "format-wifi":         "<span size='13000' foreground='#f5e0dc'></span> {essid}",
+    "tooltip-format-wifi": "Signal Strength: {signalStrength}%",
+    "format-ethernet":     "<span size='13000' foreground='#f5e0dc'>󰈀</span> {ipaddr}",
+    "format-linked":       "{ifname} (No IP) ",
+    "format-disconnected": "<span size='13000' foreground='#f5e0dc'></span> Disconnected"
+  },
+
+  "pulseaudio": {
+    "format":         "{icon} {volume}%",
+    "format-muted":   " Muted",
+    "format-icons": {
+      "default": ["","",""]
+    },
+    "on-click":       "pavucontrol",
+    "on-scroll-up":   "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+  },
+
+  // your custom separator
+  "custom/separator": {
+    "format": "|"
+  },
+
+  // the power menu: left=logout, middle=reboot, right=shutdown
+  "custom/logout": {
+    "format":             "<span size='15000' foreground='#f5e0dc'></span>",
+    "tooltip-format":     "<small>Left-click: Logout</small>\n<small>Middle-click: Reboot</small>\n<small>Right-click: Shutdown</small>",
+    "on-click":      "hyprctl dispatch exit",
+    "on-click-middle":    "systemctl reboot",
+    "on-click-right":     "systemctl poweroff"
+  },
+
+  "clock": {
+    "format":          "<span foreground='#f5c2e7'></span> {:%a %d %H:%M}",
+    "tooltip-format":  "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  }
+}

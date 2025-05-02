@@ -1,0 +1,46 @@
+/* ~/.config/waybar/style.css */
+
+/* Bar background, padding, border, font */
+#waybar {
+    background-color: rgba(30, 30, 46, 0.8);   /* semi-transparent $base */
+    padding: 0 12px;
+    border-bottom: 2px solid #f5c2e7;          /* $mauve */
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+  }
+  
+  /* All modules: spacing & text color */
+  .module {
+    margin: 0 6px;
+    color: #cdd6f4;                             /* $text */
+  }
+  
+  /* Focused workspace button */
+  .module.hyprland__workspaces button.focused {
+    background-color: #4f4f7d;                  /* darker mauve */
+    color: #f5c2e7;                             /* highlight */
+  }
+  
+  /* Separator styling */
+  .separator {
+    color: #585b70;                             /* $subtext0 */
+    margin: 0 8px;
+  }
+  
+  /* Tray padding */
+  #tray {
+    padding-left: 8px;
+  }
+  
+  /* Custom logout icon padding */
+  .module.custom__logout {
+    padding: 0 8px;   /* widen the hover area */
+  }
+  
+  /* Optional: tweak individual module spacing */
+  .module.clock,
+  .module.network,
+  .module.pulseaudio {
+    margin-left: 8px;
+  }
+  
